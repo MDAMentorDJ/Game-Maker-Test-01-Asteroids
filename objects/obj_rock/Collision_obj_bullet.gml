@@ -1,3 +1,11 @@
+/// @DnDAction : YoYo Games.Common.Variable
+/// @DnDVersion : 1
+/// @DnDHash : 72CA81D6
+/// @DnDArgument : "expr" "1"
+/// @DnDArgument : "expr_relative" "1"
+/// @DnDArgument : "var" "obj_game.rockCount"
+obj_game.rockCount += 1;
+
 /// @DnDAction : YoYo Games.Common.If_Variable
 /// @DnDVersion : 1
 /// @DnDHash : 19D0130B
