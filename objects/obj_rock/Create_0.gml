@@ -4,14 +4,37 @@
 /// @DnDArgument : "var" "shootTimer"
 shootTimer = 0;
 
+/// @DnDAction : YoYo Games.Common.Temp_Variable
+/// @DnDVersion : 1
+/// @DnDHash : 119A1D22
+/// @DnDArgument : "var" "tempDiff"
+/// @DnDArgument : "value" "0"
+var tempDiff = 0;
+
+/// @DnDAction : YoYo Games.Common.If_Variable
+/// @DnDVersion : 1
+/// @DnDHash : 002F1A7E
+/// @DnDArgument : "var" "obj_game.gameState"
+/// @DnDArgument : "value" "19"
+if(obj_game.gameState == 19)
+{
+	/// @DnDAction : YoYo Games.Common.Variable
+	/// @DnDVersion : 1
+	/// @DnDHash : 5E70CC21
+	/// @DnDParent : 002F1A7E
+	/// @DnDArgument : "expr" "floor(obj_game.rockCount / 10)"
+	/// @DnDArgument : "var" "tempDiff"
+	tempDiff = floor(obj_game.rockCount / 10);
+}
+
 /// @DnDAction : YoYo Games.Random.Get_Random_Number
 /// @DnDVersion : 1
 /// @DnDHash : 75B923B0
 /// @DnDComment : Set the speed to a random amount from .5 to maxSpeed
 /// @DnDArgument : "var" "speed"
-/// @DnDArgument : "min" ".5"
-/// @DnDArgument : "max" "rockMaxSpeed"
-speed = (random_range(.5, rockMaxSpeed));
+/// @DnDArgument : "min" ".5 + tempDiff/2"
+/// @DnDArgument : "max" "rockMaxSpeed + tempDiff"
+speed = (random_range(.5 + tempDiff/2, rockMaxSpeed + tempDiff));
 
 /// @DnDAction : YoYo Games.Random.Get_Random_Number
 /// @DnDVersion : 1

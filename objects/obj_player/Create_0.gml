@@ -450,24 +450,39 @@ function MovePlayerWithMouse()
 			/// @DnDArgument : "expr" "radtodeg(arctan2(-dy,dx))"
 			/// @DnDArgument : "var" "image_angle"
 			image_angle = radtodeg(arctan2(-dy,dx));
+		
+			/// @DnDAction : YoYo Games.Common.Variable
+			/// @DnDVersion : 1
+			/// @DnDHash : 096B7B50
+			/// @DnDInput : 2
+			/// @DnDParent : 7085F42E
+			/// @DnDArgument : "expr" "x"
+			/// @DnDArgument : "expr_1" "y"
+			/// @DnDArgument : "var" "lastX"
+			/// @DnDArgument : "var_1" "lastY"
+			lastX = x;
+			lastY = y;
 		}
-	
-		/// @DnDAction : YoYo Games.Common.Variable
-		/// @DnDVersion : 1
-		/// @DnDHash : 096B7B50
-		/// @DnDInput : 2
-		/// @DnDParent : 530D100A
-		/// @DnDArgument : "expr" "x"
-		/// @DnDArgument : "expr_1" "y"
-		/// @DnDArgument : "var" "lastX"
-		/// @DnDArgument : "var_1" "lastY"
-		lastX = x;
-		lastY = y;
 	}
 
 	/// @DnDAction : YoYo Games.Common.If_Variable
 	/// @DnDVersion : 1
 	/// @DnDHash : 3A6E3770
+	/// @DnDParent : 444BB7B0
+	/// @DnDArgument : "var" "obj_game.gameState"
+	/// @DnDArgument : "value" "19"
+	if(obj_game.gameState == 19)
+	{
+		/// @DnDAction : YoYo Games.Common.Return
+		/// @DnDVersion : 1
+		/// @DnDHash : 256A080E
+		/// @DnDParent : 3A6E3770
+		return;
+	}
+
+	/// @DnDAction : YoYo Games.Common.If_Variable
+	/// @DnDVersion : 1
+	/// @DnDHash : 23082931
 	/// @DnDParent : 444BB7B0
 	/// @DnDArgument : "var" "bulletTimer"
 	/// @DnDArgument : "op" "4"
@@ -476,15 +491,15 @@ function MovePlayerWithMouse()
 	{
 		/// @DnDAction : YoYo Games.Common.Variable
 		/// @DnDVersion : 1
-		/// @DnDHash : 4D33B470
-		/// @DnDParent : 3A6E3770
+		/// @DnDHash : 74E55CA5
+		/// @DnDParent : 23082931
 		/// @DnDArgument : "var" "bulletTimer"
 		bulletTimer = 0;
 	
 		/// @DnDAction : YoYo Games.Common.Function_Call
 		/// @DnDVersion : 1
-		/// @DnDHash : 2735DAD3
-		/// @DnDParent : 3A6E3770
+		/// @DnDHash : 28D9B317
+		/// @DnDParent : 23082931
 		/// @DnDArgument : "function" "FireWeapons"
 		FireWeapons();
 	}

@@ -23,6 +23,41 @@ if(obj_game.playerInControl == 1)
 		MovePlayerWithMouse();
 	}
 
+	/// @DnDAction : YoYo Games.Common.If_Variable
+	/// @DnDVersion : 1
+	/// @DnDHash : 2F7600BC
+	/// @DnDComment : If we're on Melanie's Level$(13_10)Then move with the mouse
+	/// @DnDParent : 77BDD9AA
+	/// @DnDArgument : "var" "obj_game.gameState"
+	/// @DnDArgument : "value" "19"
+	if(obj_game.gameState == 19)
+	{
+		/// @DnDAction : YoYo Games.Common.Function_Call
+		/// @DnDVersion : 1
+		/// @DnDHash : 6637213B
+		/// @DnDComment : Move the player$(13_10)
+		/// @DnDParent : 2F7600BC
+		/// @DnDArgument : "function" "MovePlayerWithMouse"
+		MovePlayerWithMouse();
+	
+		/// @DnDAction : YoYo Games.Mouse & Keyboard.If_Mouse_Pressed
+		/// @DnDVersion : 1.1
+		/// @DnDHash : 65D26750
+		/// @DnDParent : 2F7600BC
+		var l65D26750_0;
+		l65D26750_0 = mouse_check_button_pressed(mb_left);
+		if (l65D26750_0)
+		{
+			/// @DnDAction : YoYo Games.Common.Function_Call
+			/// @DnDVersion : 1
+			/// @DnDHash : 69341B81
+			/// @DnDComment : Pew pew pew
+			/// @DnDParent : 65D26750
+			/// @DnDArgument : "function" "FireWeapons"
+			FireWeapons();
+		}
+	}
+
 	/// @DnDAction : YoYo Games.Common.Else
 	/// @DnDVersion : 1
 	/// @DnDHash : 02671BD0

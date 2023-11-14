@@ -1,12 +1,3 @@
-/// @DnDAction : YoYo Games.Common.Variable
-/// @DnDVersion : 1
-/// @DnDHash : 606CDCF7
-/// @DnDDisabled : 1
-/// @DnDArgument : "expr" "-delta_time /  1000000"
-/// @DnDArgument : "expr_relative" "1"
-/// @DnDArgument : "var" "powerup_time"
-
-
 /// @DnDAction : YoYo Games.Common.If_Variable
 /// @DnDVersion : 1
 /// @DnDHash : 26259777
@@ -538,9 +529,9 @@ if(gameState == 10)
 	/// @DnDVersion : 1
 	/// @DnDHash : 0A835DA1
 	/// @DnDParent : 1479BFE7
-	/// @DnDArgument : "expr" ""Asteroids " + string(rockCount) + " / " + string(rockTarget)"
+	/// @DnDArgument : "expr" ""Aliens " + string(rockCount) + " / " + string(rockTarget)"
 	/// @DnDArgument : "var" "subText"
-	subText = "Asteroids " + string(rockCount) + " / " + string(rockTarget);
+	subText = "Aliens " + string(rockCount) + " / " + string(rockTarget);
 
 	/// @DnDAction : YoYo Games.Common.If_Variable
 	/// @DnDVersion : 1
@@ -884,9 +875,9 @@ if(gameState == 16)
 		/// @DnDVersion : 1
 		/// @DnDHash : 3A5425CE
 		/// @DnDParent : 7BC273D6
-		/// @DnDArgument : "expr" ""Enemy Health " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health " + string(obj_player.currentHealth) + " / " + string(obj_player.maxHealth)"
+		/// @DnDArgument : "expr" ""Enemy Health " + string(rockTarget - rockCount) + " / " + string(rockTarget) + "\n" + "Health " + string(obj_player.currentHealth) + " / " + string(obj_player.maxHealth)"
 		/// @DnDArgument : "var" "subText"
-		subText = "Enemy Health " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health " + string(obj_player.currentHealth) + " / " + string(obj_player.maxHealth);
+		subText = "Enemy Health " + string(rockTarget - rockCount) + " / " + string(rockTarget) + "\n" + "Health " + string(obj_player.currentHealth) + " / " + string(obj_player.maxHealth);
 	}
 
 	/// @DnDAction : YoYo Games.Common.Else
@@ -899,9 +890,9 @@ if(gameState == 16)
 		/// @DnDVersion : 1
 		/// @DnDHash : 2F475C98
 		/// @DnDParent : 1E97A9E5
-		/// @DnDArgument : "expr" ""Enemy Health " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health - Destroyed""
+		/// @DnDArgument : "expr" ""Enemy Health " + string(rockTarget - rockCount) + " / " + string(rockTarget) + "\n" + "Health - Destroyed""
 		/// @DnDArgument : "var" "subText"
-		subText = "Enemy Health " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health - Destroyed";
+		subText = "Enemy Health " + string(rockTarget - rockCount) + " / " + string(rockTarget) + "\n" + "Health - Destroyed";
 	}
 
 	/// @DnDAction : YoYo Games.Common.If_Variable
@@ -929,8 +920,8 @@ if(gameState == 16)
 		/// @DnDParent : 63633D08
 		/// @DnDArgument : "expr" "17"
 		/// @DnDArgument : "expr_2" "1"
-		/// @DnDArgument : "expr_3" ""Next Level""
-		/// @DnDArgument : "expr_5" ""Next Level""
+		/// @DnDArgument : "expr_3" ""Mentor's Level""
+		/// @DnDArgument : "expr_5" ""Mentors Level\nUse Arrow Keys to Move\nUse Mouse to Shoot\nPress Space to Begin""
 		/// @DnDArgument : "expr_6" "10"
 		/// @DnDArgument : "var" "gameState"
 		/// @DnDArgument : "var_1" "playerInControl"
@@ -942,9 +933,9 @@ if(gameState == 16)
 		gameState = 17;
 		playerInControl = 0;
 		showInstructions = 1;
-		levelName = "Next Level";
+		levelName = "Mentor's Level";
 		rockCount = 0;
-		instructions = "Next Level";
+		instructions = "Mentors Level\nUse Arrow Keys to Move\nUse Mouse to Shoot\nPress Space to Begin";
 		rockTarget = 10;
 	
 		/// @DnDAction : YoYo Games.Common.Variable
@@ -963,4 +954,103 @@ if(gameState == 16)
 		/// @DnDArgument : "event" "1"
 		event_user(1);
 	}
+}
+
+/// @DnDAction : YoYo Games.Common.If_Variable
+/// @DnDVersion : 1
+/// @DnDHash : 45061CDB
+/// @DnDArgument : "var" "gameState"
+/// @DnDArgument : "value" "17"
+if(gameState == 17)
+{
+	/// @DnDAction : YoYo Games.Common.If_Variable
+	/// @DnDVersion : 1
+	/// @DnDHash : 5FB7D22E
+	/// @DnDComment : Lets wait for the player position to be reset
+	/// @DnDParent : 45061CDB
+	/// @DnDArgument : "var" "resetPosition"
+	if(resetPosition == 0)
+	{
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 3E7D190A
+		/// @DnDParent : 5FB7D22E
+		/// @DnDArgument : "expr" "1"
+		/// @DnDArgument : "expr_relative" "1"
+		/// @DnDArgument : "var" "gameState"
+		gameState += 1;
+	}
+}
+
+/// @DnDAction : YoYo Games.Common.If_Variable
+/// @DnDVersion : 1
+/// @DnDHash : 54B44DF9
+/// @DnDComment : Mentors Level (18)
+/// @DnDArgument : "var" "gameState"
+/// @DnDArgument : "value" "18"
+if(gameState == 18)
+{
+	/// @DnDAction : YoYo Games.Mouse & Keyboard.If_Key_Pressed
+	/// @DnDVersion : 1
+	/// @DnDHash : 236220CC
+	/// @DnDParent : 54B44DF9
+	var l236220CC_0;
+	l236220CC_0 = keyboard_check_pressed(vk_space);
+	if (l236220CC_0)
+	{
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 42144DCD
+		/// @DnDInput : 3
+		/// @DnDParent : 236220CC
+		/// @DnDArgument : "expr" "19"
+		/// @DnDArgument : "expr_1" "1"
+		/// @DnDArgument : "var" "gameState"
+		/// @DnDArgument : "var_1" "playerInControl"
+		/// @DnDArgument : "var_2" "showInstructions"
+		gameState = 19;
+		playerInControl = 1;
+		showInstructions = 0;
+	
+		/// @DnDAction : YoYo Games.Loops.Repeat
+		/// @DnDVersion : 1
+		/// @DnDHash : 43645587
+		/// @DnDComment : User event 0 Spawns a rock in a random location
+		/// @DnDParent : 236220CC
+		/// @DnDArgument : "times" "6"
+		repeat(6)
+		{
+			/// @DnDAction : YoYo Games.Instances.Call_User_Event
+			/// @DnDVersion : 1
+			/// @DnDHash : 0C4AE9D3
+			/// @DnDParent : 43645587
+			event_user(0);
+		}
+	}
+}
+
+/// @DnDAction : YoYo Games.Common.If_Variable
+/// @DnDVersion : 1
+/// @DnDHash : 192B631E
+/// @DnDComment : Mentor's Level
+/// @DnDArgument : "var" "gameState"
+/// @DnDArgument : "value" "19"
+if(gameState == 19)
+{
+	/// @DnDAction : YoYo Games.Common.Variable
+	/// @DnDVersion : 1
+	/// @DnDHash : 48F3F7AD
+	/// @DnDParent : 192B631E
+	/// @DnDArgument : "expr" ""Difficulty " + string(floor(rockCount / 10))"
+	/// @DnDArgument : "var" "subText"
+	subText = "Difficulty " + string(floor(rockCount / 10));
+
+	/// @DnDAction : YoYo Games.Common.Variable
+	/// @DnDVersion : 1
+	/// @DnDHash : 1DBA162D
+	/// @DnDParent : 192B631E
+	/// @DnDArgument : "expr" "-delta_time /  1000000"
+	/// @DnDArgument : "expr_relative" "1"
+	/// @DnDArgument : "var" "powerup_time"
+	powerup_time += -delta_time /  1000000;
 }
