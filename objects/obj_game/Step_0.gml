@@ -437,6 +437,19 @@ if(gameState == 7)
 		/// @DnDArgument : "arg" "layer_get_id("Background")"
 		/// @DnDArgument : "arg_1" "-.5"
 		layer_hspeed(layer_get_id("Background"), -.5);
+	
+		/// @DnDAction : YoYo Games.Instances.Set_Sprite
+		/// @DnDVersion : 1
+		/// @DnDHash : 73B3D548
+		/// @DnDComment : Set the players sprite to Mary's ship
+		/// @DnDApplyTo : {obj_player}
+		/// @DnDParent : 63625226
+		/// @DnDArgument : "spriteind" "spr_mary_ship"
+		/// @DnDSaveInfo : "spriteind" "spr_mary_ship"
+		with(obj_player) {
+		sprite_index = spr_mary_ship;
+		image_index = 0;
+		}
 	}
 }
 
@@ -584,6 +597,19 @@ if(gameState == 10)
 		/// @DnDParent : 53EC5B66
 		/// @DnDArgument : "event" "1"
 		event_user(1);
+	
+		/// @DnDAction : YoYo Games.Instances.Set_Sprite
+		/// @DnDVersion : 1
+		/// @DnDHash : 0F81234D
+		/// @DnDComment : Set the players sprite back!
+		/// @DnDApplyTo : {obj_player}
+		/// @DnDParent : 53EC5B66
+		/// @DnDArgument : "spriteind" "spr_player"
+		/// @DnDSaveInfo : "spriteind" "spr_player"
+		with(obj_player) {
+		sprite_index = spr_player;
+		image_index = 0;
+		}
 	}
 }
 
@@ -668,13 +694,39 @@ if(gameState == 12)
 /// @DnDArgument : "value" "13"
 if(gameState == 13)
 {
-	/// @DnDAction : YoYo Games.Common.Variable
+	/// @DnDAction : YoYo Games.Instances.If_Instance_Exists
 	/// @DnDVersion : 1
-	/// @DnDHash : 431D41BD
+	/// @DnDHash : 618E15F4
 	/// @DnDParent : 036C09E5
-	/// @DnDArgument : "expr" ""Asteroids " + string(rockCount) + " / " + string(rockTarget)"
-	/// @DnDArgument : "var" "subText"
-	subText = "Asteroids " + string(rockCount) + " / " + string(rockTarget);
+	/// @DnDArgument : "obj" "obj_player"
+	/// @DnDSaveInfo : "obj" "obj_player"
+	var l618E15F4_0 = false;
+	l618E15F4_0 = instance_exists(obj_player);
+	if(l618E15F4_0)
+	{
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 431D41BD
+		/// @DnDParent : 618E15F4
+		/// @DnDArgument : "expr" ""Asteroids " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health " + string(obj_player.currentHealth) + " / " + string(obj_player.maxHealth)"
+		/// @DnDArgument : "var" "subText"
+		subText = "Asteroids " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health " + string(obj_player.currentHealth) + " / " + string(obj_player.maxHealth);
+	}
+
+	/// @DnDAction : YoYo Games.Common.Else
+	/// @DnDVersion : 1
+	/// @DnDHash : 2E5EA8F3
+	/// @DnDParent : 036C09E5
+	else
+	{
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 428DA479
+		/// @DnDParent : 2E5EA8F3
+		/// @DnDArgument : "expr" ""Asteroids " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health - Destroyed""
+		/// @DnDArgument : "var" "subText"
+		subText = "Asteroids " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health - Destroyed";
+	}
 
 	/// @DnDAction : YoYo Games.Common.If_Variable
 	/// @DnDVersion : 1
@@ -697,24 +749,27 @@ if(gameState == 13)
 		/// @DnDVersion : 1
 		/// @DnDHash : 4DC4D8F8
 		/// @DnDComment : Move to the next game state$(13_10)Remove Player Control$(13_10)Show the next set of instructions$(13_10)Have the player reset position$(13_10)Reset the rock count
-		/// @DnDInput : 6
+		/// @DnDInput : 7
 		/// @DnDParent : 52D7C74E
 		/// @DnDArgument : "expr" "14"
 		/// @DnDArgument : "expr_2" "1"
 		/// @DnDArgument : "expr_3" ""Jonathan's Level""
 		/// @DnDArgument : "expr_5" ""Jonathan's Level\nUse Arrow Keys to Move\nUse Mouse to Shoot\nPress Space to Begin""
+		/// @DnDArgument : "expr_6" "10"
 		/// @DnDArgument : "var" "gameState"
 		/// @DnDArgument : "var_1" "playerInControl"
 		/// @DnDArgument : "var_2" "showInstructions"
 		/// @DnDArgument : "var_3" "levelName"
 		/// @DnDArgument : "var_4" "rockCount"
 		/// @DnDArgument : "var_5" "instructions"
+		/// @DnDArgument : "var_6" "rockTarget"
 		gameState = 14;
 		playerInControl = 0;
 		showInstructions = 1;
 		levelName = "Jonathan's Level";
 		rockCount = 0;
 		instructions = "Jonathan's Level\nUse Arrow Keys to Move\nUse Mouse to Shoot\nPress Space to Begin";
+		rockTarget = 10;
 	
 		/// @DnDAction : YoYo Games.Common.Variable
 		/// @DnDVersion : 1
@@ -788,15 +843,124 @@ if(gameState == 15)
 		/// @DnDAction : YoYo Games.Common.Variable
 		/// @DnDVersion : 1
 		/// @DnDHash : 0B4B89D8
-		/// @DnDInput : 3
+		/// @DnDInput : 5
 		/// @DnDParent : 05C13B1F
 		/// @DnDArgument : "expr" "16"
 		/// @DnDArgument : "expr_1" "1"
+		/// @DnDArgument : "expr_3" "5"
+		/// @DnDArgument : "expr_4" "5"
 		/// @DnDArgument : "var" "gameState"
 		/// @DnDArgument : "var_1" "playerInControl"
 		/// @DnDArgument : "var_2" "showInstructions"
+		/// @DnDArgument : "var_3" "obj_player.maxHealth"
+		/// @DnDArgument : "var_4" "obj_player.currentHealth"
 		gameState = 16;
 		playerInControl = 1;
 		showInstructions = 0;
+		obj_player.maxHealth = 5;
+		obj_player.currentHealth = 5;
+	}
+}
+
+/// @DnDAction : YoYo Games.Common.If_Variable
+/// @DnDVersion : 1
+/// @DnDHash : 177AB502
+/// @DnDComment : Jonathan's Level (16)
+/// @DnDArgument : "var" "gameState"
+/// @DnDArgument : "value" "16"
+if(gameState == 16)
+{
+	/// @DnDAction : YoYo Games.Instances.If_Instance_Exists
+	/// @DnDVersion : 1
+	/// @DnDHash : 7BC273D6
+	/// @DnDParent : 177AB502
+	/// @DnDArgument : "obj" "obj_player"
+	/// @DnDSaveInfo : "obj" "obj_player"
+	var l7BC273D6_0 = false;
+	l7BC273D6_0 = instance_exists(obj_player);
+	if(l7BC273D6_0)
+	{
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 3A5425CE
+		/// @DnDParent : 7BC273D6
+		/// @DnDArgument : "expr" ""Enemy Health " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health " + string(obj_player.currentHealth) + " / " + string(obj_player.maxHealth)"
+		/// @DnDArgument : "var" "subText"
+		subText = "Enemy Health " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health " + string(obj_player.currentHealth) + " / " + string(obj_player.maxHealth);
+	}
+
+	/// @DnDAction : YoYo Games.Common.Else
+	/// @DnDVersion : 1
+	/// @DnDHash : 1E97A9E5
+	/// @DnDParent : 177AB502
+	else
+	{
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 2F475C98
+		/// @DnDParent : 1E97A9E5
+		/// @DnDArgument : "expr" ""Enemy Health " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health - Destroyed""
+		/// @DnDArgument : "var" "subText"
+		subText = "Enemy Health " + string(rockCount) + " / " + string(rockTarget) + "\n" + "Health - Destroyed";
+	}
+
+	/// @DnDAction : YoYo Games.Common.If_Variable
+	/// @DnDVersion : 1
+	/// @DnDHash : 63633D08
+	/// @DnDParent : 177AB502
+	/// @DnDArgument : "var" "rockCount"
+	/// @DnDArgument : "op" "4"
+	/// @DnDArgument : "value" "rockTarget"
+	if(rockCount >= rockTarget)
+	{
+		/// @DnDAction : YoYo Games.Instances.Destroy_Instance
+		/// @DnDVersion : 1
+		/// @DnDHash : 486C4665
+		/// @DnDComment : Remove the rocks
+		/// @DnDApplyTo : {obj_rock}
+		/// @DnDParent : 63633D08
+		with(obj_rock) instance_destroy();
+	
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 1B3E57CB
+		/// @DnDComment : Move to the next game state$(13_10)Remove Player Control$(13_10)Show the next set of instructions$(13_10)Have the player reset position$(13_10)Reset the rock count
+		/// @DnDInput : 7
+		/// @DnDParent : 63633D08
+		/// @DnDArgument : "expr" "17"
+		/// @DnDArgument : "expr_2" "1"
+		/// @DnDArgument : "expr_3" ""Next Level""
+		/// @DnDArgument : "expr_5" ""Next Level""
+		/// @DnDArgument : "expr_6" "10"
+		/// @DnDArgument : "var" "gameState"
+		/// @DnDArgument : "var_1" "playerInControl"
+		/// @DnDArgument : "var_2" "showInstructions"
+		/// @DnDArgument : "var_3" "levelName"
+		/// @DnDArgument : "var_4" "rockCount"
+		/// @DnDArgument : "var_5" "instructions"
+		/// @DnDArgument : "var_6" "rockTarget"
+		gameState = 17;
+		playerInControl = 0;
+		showInstructions = 1;
+		levelName = "Next Level";
+		rockCount = 0;
+		instructions = "Next Level";
+		rockTarget = 10;
+	
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 17E09CBA
+		/// @DnDParent : 63633D08
+		/// @DnDArgument : "expr" ""Asteroids " + string(rockCount) + " / " + string(rockTarget)"
+		/// @DnDArgument : "var" "subText"
+		subText = "Asteroids " + string(rockCount) + " / " + string(rockTarget);
+	
+		/// @DnDAction : YoYo Games.Instances.Call_User_Event
+		/// @DnDVersion : 1
+		/// @DnDHash : 3514EF9F
+		/// @DnDComment : Reset the players position
+		/// @DnDParent : 63633D08
+		/// @DnDArgument : "event" "1"
+		event_user(1);
 	}
 }

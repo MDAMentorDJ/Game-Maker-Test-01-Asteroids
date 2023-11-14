@@ -77,9 +77,9 @@ if(sprite_index == spr_rock_big)
 		/// @DnDVersion : 1
 		/// @DnDHash : 2396EE0A
 		/// @DnDParent : 7E220875
-		/// @DnDArgument : "spriteind" "spr_ship"
-		/// @DnDSaveInfo : "spriteind" "spr_ship"
-		sprite_index = spr_ship;
+		/// @DnDArgument : "spriteind" "spr_ella_ship"
+		/// @DnDSaveInfo : "spriteind" "spr_ella_ship"
+		sprite_index = spr_ella_ship;
 		image_index = 0;
 	}
 
@@ -134,9 +134,9 @@ else
 			/// @DnDVersion : 1
 			/// @DnDHash : 10DD7C76
 			/// @DnDParent : 6917E90D
-			/// @DnDArgument : "spriteind" "spr_ship"
-			/// @DnDSaveInfo : "spriteind" "spr_ship"
-			sprite_index = spr_ship;
+			/// @DnDArgument : "spriteind" "spr_ella_ship"
+			/// @DnDSaveInfo : "spriteind" "spr_ella_ship"
+			sprite_index = spr_ella_ship;
 			image_index = 0;
 		}
 	

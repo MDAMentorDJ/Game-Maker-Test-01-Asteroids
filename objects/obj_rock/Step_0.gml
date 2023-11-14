@@ -45,8 +45,8 @@ if(obj_game.gameState == 10)
 /// @DnDVersion : 1
 /// @DnDHash : 3BCD9FC7
 /// @DnDArgument : "var" "sprite_index"
-/// @DnDArgument : "value" "spr_ship"
-if(sprite_index == spr_ship)
+/// @DnDArgument : "value" "spr_ella_ship"
+if(sprite_index == spr_ella_ship)
 {
 	/// @DnDAction : YoYo Games.Common.If_Variable
 	/// @DnDVersion : 1

@@ -1,7 +1,9 @@
 /// @DnDAction : YoYo Games.Common.Variable
 /// @DnDVersion : 1
 /// @DnDHash : 4EFAF406
-/// @DnDInput : 11
+/// @DnDInput : 13
+/// @DnDArgument : "expr_11" "20"
+/// @DnDArgument : "expr_12" "20"
 /// @DnDArgument : "var" "resetX"
 /// @DnDArgument : "var_1" "resetY"
 /// @DnDArgument : "var_2" "resetA"
@@ -13,6 +15,8 @@
 /// @DnDArgument : "var_8" "dx"
 /// @DnDArgument : "var_9" "dy"
 /// @DnDArgument : "var_10" "bulletTimer"
+/// @DnDArgument : "var_11" "currentHealth"
+/// @DnDArgument : "var_12" "maxHealth"
 resetX = 0;
 resetY = 0;
 resetA = 0;
@@ -24,6 +28,8 @@ angleTimer = 0;
 dx = 0;
 dy = 0;
 bulletTimer = 0;
+currentHealth = 20;
+maxHealth = 20;
 
 /// @DnDAction : YoYo Games.Common.Function
 /// @DnDVersion : 1

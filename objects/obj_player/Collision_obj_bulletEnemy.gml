@@ -1,15 +1,28 @@
+/// @DnDAction : YoYo Games.Instances.Destroy_Instance
+/// @DnDVersion : 1
+/// @DnDHash : 2DF8C8AB
+/// @DnDApplyTo : other
+with(other) instance_destroy();
+
+/// @DnDAction : YoYo Games.Common.Variable
+/// @DnDVersion : 1
+/// @DnDHash : 0565F5C0
+/// @DnDArgument : "expr" "-1"
+/// @DnDArgument : "expr_relative" "1"
+/// @DnDArgument : "var" "currentHealth"
+currentHealth += -1;
+
 /// @DnDAction : YoYo Games.Common.If_Variable
 /// @DnDVersion : 1
-/// @DnDHash : 28FCF137
-/// @DnDArgument : "var" "powerup"
-/// @DnDArgument : "not" "1"
-/// @DnDArgument : "value" "2"
-if(!(powerup == 2))
+/// @DnDHash : 066FE3DF
+/// @DnDArgument : "var" "currentHealth"
+/// @DnDArgument : "op" "3"
+if(currentHealth <= 0)
 {
 	/// @DnDAction : YoYo Games.Particles.Effect
 	/// @DnDVersion : 1
-	/// @DnDHash : 0D9A5EE0
-	/// @DnDParent : 28FCF137
+	/// @DnDHash : 0446B714
+	/// @DnDParent : 066FE3DF
 	/// @DnDArgument : "x_relative" "1"
 	/// @DnDArgument : "y_relative" "1"
 	/// @DnDArgument : "type" "3"
@@ -19,8 +32,8 @@ if(!(powerup == 2))
 
 	/// @DnDAction : YoYo Games.Audio.Play_Audio
 	/// @DnDVersion : 1.1
-	/// @DnDHash : 684E8473
-	/// @DnDParent : 28FCF137
+	/// @DnDHash : 4FDACAFA
+	/// @DnDParent : 066FE3DF
 	/// @DnDArgument : "soundid" "snd_lose"
 	/// @DnDArgument : "gain" ".25"
 	/// @DnDSaveInfo : "soundid" "snd_lose"
@@ -28,22 +41,15 @@ if(!(powerup == 2))
 
 	/// @DnDAction : YoYo Games.Instances.Destroy_Instance
 	/// @DnDVersion : 1
-	/// @DnDHash : 016EF506
-	/// @DnDParent : 28FCF137
+	/// @DnDHash : 3BEFAEA9
+	/// @DnDParent : 066FE3DF
 	instance_destroy();
-
-	/// @DnDAction : YoYo Games.Instances.Destroy_Instance
-	/// @DnDVersion : 1
-	/// @DnDHash : 237E40E5
-	/// @DnDApplyTo : {obj_bullet}
-	/// @DnDParent : 28FCF137
-	with(obj_bullet) instance_destroy();
 
 	/// @DnDAction : YoYo Games.Instances.Set_Alarm
 	/// @DnDVersion : 1
-	/// @DnDHash : 3D486593
+	/// @DnDHash : 4459AF37
 	/// @DnDApplyTo : {obj_game}
-	/// @DnDParent : 28FCF137
+	/// @DnDParent : 066FE3DF
 	/// @DnDArgument : "steps" "120"
 	with(obj_game) {
 	alarm_set(0, 120);
