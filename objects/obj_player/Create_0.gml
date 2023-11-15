@@ -1,7 +1,7 @@
 /// @DnDAction : YoYo Games.Common.Variable
 /// @DnDVersion : 1
 /// @DnDHash : 4EFAF406
-/// @DnDInput : 13
+/// @DnDInput : 14
 /// @DnDArgument : "expr_11" "20"
 /// @DnDArgument : "expr_12" "20"
 /// @DnDArgument : "var" "resetX"
@@ -17,6 +17,7 @@
 /// @DnDArgument : "var_10" "bulletTimer"
 /// @DnDArgument : "var_11" "currentHealth"
 /// @DnDArgument : "var_12" "maxHealth"
+/// @DnDArgument : "var_13" "can_use_bomb"
 resetX = 0;
 resetY = 0;
 resetA = 0;
@@ -30,6 +31,7 @@ dy = 0;
 bulletTimer = 0;
 currentHealth = 20;
 maxHealth = 20;
+can_use_bomb = 0;
 
 /// @DnDAction : YoYo Games.Common.Function
 /// @DnDVersion : 1
@@ -135,6 +137,15 @@ function MovePlayer()
 	l1DBCE62B_0 = keyboard_check(vk_left);
 	if (l1DBCE62B_0)
 	{
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 78622AD4
+		/// @DnDParent : 1DBCE62B
+		/// @DnDArgument : "expr" "playerSpin"
+		/// @DnDArgument : "expr_relative" "1"
+		/// @DnDArgument : "var" "image_angle"
+		image_angle += playerSpin;
+	
 		/// @DnDAction : YoYo Games.Common.If_Variable
 		/// @DnDVersion : 1
 		/// @DnDHash : 5840088F
@@ -144,14 +155,7 @@ function MovePlayer()
 		/// @DnDArgument : "value" "7"
 		if(!(obj_game.gameState == 7))
 		{
-			/// @DnDAction : YoYo Games.Common.Variable
-			/// @DnDVersion : 1
-			/// @DnDHash : 78622AD4
-			/// @DnDParent : 5840088F
-			/// @DnDArgument : "expr" "playerSpin"
-			/// @DnDArgument : "expr_relative" "1"
-			/// @DnDArgument : "var" "image_angle"
-			image_angle += playerSpin;
+		
 		}
 	}
 
@@ -164,6 +168,15 @@ function MovePlayer()
 	l04C6ADF2_0 = keyboard_check(ord("A"));
 	if (l04C6ADF2_0)
 	{
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 7C871129
+		/// @DnDParent : 04C6ADF2
+		/// @DnDArgument : "expr" "playerSpin"
+		/// @DnDArgument : "expr_relative" "1"
+		/// @DnDArgument : "var" "image_angle"
+		image_angle += playerSpin;
+	
 		/// @DnDAction : YoYo Games.Common.If_Variable
 		/// @DnDVersion : 1
 		/// @DnDHash : 64781EF3
@@ -173,14 +186,7 @@ function MovePlayer()
 		/// @DnDArgument : "value" "7"
 		if(!(obj_game.gameState == 7))
 		{
-			/// @DnDAction : YoYo Games.Common.Variable
-			/// @DnDVersion : 1
-			/// @DnDHash : 7C871129
-			/// @DnDParent : 64781EF3
-			/// @DnDArgument : "expr" "playerSpin"
-			/// @DnDArgument : "expr_relative" "1"
-			/// @DnDArgument : "var" "image_angle"
-			image_angle += playerSpin;
+		
 		}
 	}
 
@@ -193,6 +199,15 @@ function MovePlayer()
 	l2D7BB9A0_0 = keyboard_check(vk_right);
 	if (l2D7BB9A0_0)
 	{
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 489DB9C9
+		/// @DnDParent : 2D7BB9A0
+		/// @DnDArgument : "expr" "-playerSpin"
+		/// @DnDArgument : "expr_relative" "1"
+		/// @DnDArgument : "var" "image_angle"
+		image_angle += -playerSpin;
+	
 		/// @DnDAction : YoYo Games.Common.If_Variable
 		/// @DnDVersion : 1
 		/// @DnDHash : 3663A3EB
@@ -202,14 +217,7 @@ function MovePlayer()
 		/// @DnDArgument : "value" "7"
 		if(!(obj_game.gameState == 7))
 		{
-			/// @DnDAction : YoYo Games.Common.Variable
-			/// @DnDVersion : 1
-			/// @DnDHash : 489DB9C9
-			/// @DnDParent : 3663A3EB
-			/// @DnDArgument : "expr" "-playerSpin"
-			/// @DnDArgument : "expr_relative" "1"
-			/// @DnDArgument : "var" "image_angle"
-			image_angle += -playerSpin;
+		
 		}
 	}
 
@@ -222,6 +230,15 @@ function MovePlayer()
 	l2BDC3F2F_0 = keyboard_check(ord("D"));
 	if (l2BDC3F2F_0)
 	{
+		/// @DnDAction : YoYo Games.Common.Variable
+		/// @DnDVersion : 1
+		/// @DnDHash : 243F160A
+		/// @DnDParent : 2BDC3F2F
+		/// @DnDArgument : "expr" "-playerSpin"
+		/// @DnDArgument : "expr_relative" "1"
+		/// @DnDArgument : "var" "image_angle"
+		image_angle += -playerSpin;
+	
 		/// @DnDAction : YoYo Games.Common.If_Variable
 		/// @DnDVersion : 1
 		/// @DnDHash : 70E58B5D
@@ -231,14 +248,7 @@ function MovePlayer()
 		/// @DnDArgument : "value" "7"
 		if(!(obj_game.gameState == 7))
 		{
-			/// @DnDAction : YoYo Games.Common.Variable
-			/// @DnDVersion : 1
-			/// @DnDHash : 243F160A
-			/// @DnDParent : 70E58B5D
-			/// @DnDArgument : "expr" "-playerSpin"
-			/// @DnDArgument : "expr_relative" "1"
-			/// @DnDArgument : "var" "image_angle"
-			image_angle += -playerSpin;
+		
 		}
 	}
 

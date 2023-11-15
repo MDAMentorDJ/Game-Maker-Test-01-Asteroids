@@ -228,24 +228,27 @@ if(gameState == 4)
 		/// @DnDVersion : 1
 		/// @DnDHash : 724CCDD1
 		/// @DnDComment : Move to the next game state$(13_10)Remove Player Control$(13_10)Show the next set of instructions$(13_10)Have the player reset position$(13_10)Reset the rock count
-		/// @DnDInput : 6
+		/// @DnDInput : 7
 		/// @DnDParent : 13EB12F3
 		/// @DnDArgument : "expr" "5"
 		/// @DnDArgument : "expr_2" "1"
 		/// @DnDArgument : "expr_3" ""Luc's Level""
 		/// @DnDArgument : "expr_5" ""Luc's Level\nUse Up/Down to Move\nPress Space to shoot\nPress Space to Begin""
+		/// @DnDArgument : "expr_6" "40"
 		/// @DnDArgument : "var" "gameState"
 		/// @DnDArgument : "var_1" "playerInControl"
 		/// @DnDArgument : "var_2" "showInstructions"
 		/// @DnDArgument : "var_3" "levelName"
 		/// @DnDArgument : "var_4" "rockCount"
 		/// @DnDArgument : "var_5" "instructions"
+		/// @DnDArgument : "var_6" "rockTarget"
 		gameState = 5;
 		playerInControl = 0;
 		showInstructions = 1;
 		levelName = "Luc's Level";
 		rockCount = 0;
 		instructions = "Luc's Level\nUse Up/Down to Move\nPress Space to shoot\nPress Space to Begin";
+		rockTarget = 40;
 	
 		/// @DnDAction : YoYo Games.Common.Variable
 		/// @DnDVersion : 1
@@ -306,6 +309,15 @@ if(gameState == 6)
 	l4713EC46_0 = keyboard_check_pressed(vk_space);
 	if (l4713EC46_0)
 	{
+		/// @DnDAction : YoYo Games.Movement.Add_Motion
+		/// @DnDVersion : 1
+		/// @DnDHash : 3328F601
+		/// @DnDApplyTo : {obj_player}
+		/// @DnDParent : 4713EC46
+		/// @DnDArgument : "dir" "point_direction(x, y, x+1, y)"
+		/// @DnDArgument : "speed" "4"
+		with(obj_player) motion_add(point_direction(x, y, x+1, y), 4);
+	
 		/// @DnDAction : YoYo Games.Common.Variable
 		/// @DnDVersion : 1
 		/// @DnDHash : 0039F824
@@ -384,24 +396,27 @@ if(gameState == 7)
 		/// @DnDVersion : 1
 		/// @DnDHash : 5CB8A88A
 		/// @DnDComment : Move to the next game state$(13_10)Remove Player Control$(13_10)Show the next set of instructions$(13_10)Have the player reset position$(13_10)Reset the rock count
-		/// @DnDInput : 6
+		/// @DnDInput : 7
 		/// @DnDParent : 63625226
 		/// @DnDArgument : "expr" "8"
 		/// @DnDArgument : "expr_2" "1"
 		/// @DnDArgument : "expr_3" ""Mary's Level""
 		/// @DnDArgument : "expr_5" ""Mary's Level\nUse Arrow Keys to Move\nUse Mouse to Shoot\nPress Space to Begin""
+		/// @DnDArgument : "expr_6" "20"
 		/// @DnDArgument : "var" "gameState"
 		/// @DnDArgument : "var_1" "playerInControl"
 		/// @DnDArgument : "var_2" "showInstructions"
 		/// @DnDArgument : "var_3" "levelName"
 		/// @DnDArgument : "var_4" "rockCount"
 		/// @DnDArgument : "var_5" "instructions"
+		/// @DnDArgument : "var_6" "rockTarget"
 		gameState = 8;
 		playerInControl = 0;
 		showInstructions = 1;
 		levelName = "Mary's Level";
 		rockCount = 0;
 		instructions = "Mary's Level\nUse Arrow Keys to Move\nUse Mouse to Shoot\nPress Space to Begin";
+		rockTarget = 20;
 	
 		/// @DnDAction : YoYo Games.Common.Variable
 		/// @DnDVersion : 1
@@ -785,6 +800,7 @@ if(gameState == 13)
 		/// @DnDArgument : "xpos" "1100"
 		/// @DnDArgument : "ypos" "500"
 		/// @DnDArgument : "objectid" "obj_enemyShip"
+		/// @DnDSaveInfo : "objectid" "obj_enemyShip"
 		instance_create_layer(1100, 500, "Instances", obj_enemyShip);
 	}
 }
@@ -1001,16 +1017,19 @@ if(gameState == 18)
 		/// @DnDAction : YoYo Games.Common.Variable
 		/// @DnDVersion : 1
 		/// @DnDHash : 42144DCD
-		/// @DnDInput : 3
+		/// @DnDInput : 4
 		/// @DnDParent : 236220CC
 		/// @DnDArgument : "expr" "19"
 		/// @DnDArgument : "expr_1" "1"
+		/// @DnDArgument : "expr_3" "1"
 		/// @DnDArgument : "var" "gameState"
 		/// @DnDArgument : "var_1" "playerInControl"
 		/// @DnDArgument : "var_2" "showInstructions"
+		/// @DnDArgument : "var_3" "obj_player.can_use_bomb"
 		gameState = 19;
 		playerInControl = 1;
 		showInstructions = 0;
+		obj_player.can_use_bomb = 1;
 	
 		/// @DnDAction : YoYo Games.Loops.Repeat
 		/// @DnDVersion : 1

@@ -13,6 +13,38 @@ var tempDiff = 0;
 
 /// @DnDAction : YoYo Games.Common.If_Variable
 /// @DnDVersion : 1
+/// @DnDHash : 5B5B52BA
+/// @DnDArgument : "var" "obj_game.gameState"
+/// @DnDArgument : "value" "6"
+if(obj_game.gameState == 6)
+{
+	/// @DnDAction : YoYo Games.Movement.Add_Motion
+	/// @DnDVersion : 1
+	/// @DnDHash : 299ECDE4
+	/// @DnDParent : 5B5B52BA
+	/// @DnDArgument : "dir" "tempDiff"
+	/// @DnDArgument : "speed" "2"
+	motion_add(tempDiff, 2);
+}
+
+/// @DnDAction : YoYo Games.Common.If_Variable
+/// @DnDVersion : 1
+/// @DnDHash : 3CEC9EDB
+/// @DnDArgument : "var" "obj_game.gameState"
+/// @DnDArgument : "value" "7"
+if(obj_game.gameState == 7)
+{
+	/// @DnDAction : YoYo Games.Movement.Add_Motion
+	/// @DnDVersion : 1
+	/// @DnDHash : 73874CDF
+	/// @DnDParent : 3CEC9EDB
+	/// @DnDArgument : "dir" "tempDiff"
+	/// @DnDArgument : "speed" "2"
+	motion_add(tempDiff, 2);
+}
+
+/// @DnDAction : YoYo Games.Common.If_Variable
+/// @DnDVersion : 1
 /// @DnDHash : 002F1A7E
 /// @DnDArgument : "var" "obj_game.gameState"
 /// @DnDArgument : "value" "19"
@@ -54,34 +86,30 @@ image_angle = (random_range(0, 360));
 /// @DnDAction : YoYo Games.Common.If_Variable
 /// @DnDVersion : 1
 /// @DnDHash : 1BC55393
+/// @DnDDisabled : 1
 /// @DnDArgument : "var" "obj_game.gameState"
 /// @DnDArgument : "value" "6"
-if(obj_game.gameState == 6)
-{
-	/// @DnDAction : YoYo Games.Movement.Add_Motion
-	/// @DnDVersion : 1
-	/// @DnDHash : 3FCEEC04
-	/// @DnDParent : 1BC55393
-	/// @DnDArgument : "dir" "180"
-	/// @DnDArgument : "speed" "3"
-	motion_add(180, 3);
-}
+/// @DnDAction : YoYo Games.Movement.Add_Motion
+/// @DnDVersion : 1
+/// @DnDHash : 3FCEEC04
+/// @DnDDisabled : 1
+/// @DnDParent : 1BC55393
+/// @DnDArgument : "dir" "180"
+/// @DnDArgument : "speed" "3"
 
 /// @DnDAction : YoYo Games.Common.If_Variable
 /// @DnDVersion : 1
 /// @DnDHash : 39712F6A
+/// @DnDDisabled : 1
 /// @DnDArgument : "var" "obj_game.gameState"
 /// @DnDArgument : "value" "7"
-if(obj_game.gameState == 7)
-{
-	/// @DnDAction : YoYo Games.Movement.Add_Motion
-	/// @DnDVersion : 1
-	/// @DnDHash : 4CD4C1A9
-	/// @DnDParent : 39712F6A
-	/// @DnDArgument : "dir" "180"
-	/// @DnDArgument : "speed" "3"
-	motion_add(180, 3);
-}
+/// @DnDAction : YoYo Games.Movement.Add_Motion
+/// @DnDVersion : 1
+/// @DnDHash : 4CD4C1A9
+/// @DnDDisabled : 1
+/// @DnDParent : 39712F6A
+/// @DnDArgument : "dir" "180"
+/// @DnDArgument : "speed" "3"
 
 /// @DnDAction : YoYo Games.Common.If_Variable
 /// @DnDVersion : 1
